@@ -136,6 +136,7 @@ contract Token is Context, IERC20Metadata {
     ) internal virtual {
         require(sender != address(0), "ERC20: transfer from the zero address");
         require(recipient != address(0), "ERC20: transfer to the zero address");
+        require(amount > 0, "ERC20: zero transfer amount");
 
         uint256 senderBalance = _balances[sender];
         require(
